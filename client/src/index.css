@@ -63,6 +63,19 @@ input.yellow-input:focus {
     opacity: 0.4;
 }
 
+.material-icons-round {
+    pointer-events: none;
+}
+
+.task-checker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
 .task-complete {
     cursor: pointer;
     color: #2F80ED;
