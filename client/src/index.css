@@ -27,6 +27,13 @@ input.yellow-input:focus {
     height: 16px;
 }
 
+.tasks-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 17px;
+}
+
 .table {
     display: flex;
     align-items: center;
@@ -62,10 +69,6 @@ input.yellow-input:focus {
 
 .completed {
     opacity: 0.4;
-}
-
-.material-icons-round {
-    pointer-events: none;
 }
 
 .action-icon {

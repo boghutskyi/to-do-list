@@ -1,4 +1,4 @@
-import React, { useContext, useState, useCallback, useEffect } from 'react';
+import React, { useContext, useState, useCallback, useEffect, useDebugValue } from 'react';
 import { AuthContext } from '../context/auth.context';
 import { useHttp } from '../hooks/http.hook';
 import { Loader } from '../components/Loader';
@@ -8,9 +8,9 @@ export const TasksPage = () => {
     const auth = useContext(AuthContext);
     const { loading, request } = useHttp();
     const [tasks, setTasks] = useState([]);
-    const [task, setTask] = useState({
-        description: ''
-    });
+    const [task, setTask] = useState({ description: '' });
+    const [finishedPercent, setFinishedPercent] = useState(0);
+
     const fetchTasks = useCallback(async () => {
         try {
             const fetched = await request('/api/tasks', 'GET', null, {
@@ -52,13 +52,25 @@ export const TasksPage = () => {
         fetchTasks();
     }, [fetchTasks]);
 
+    useEffect(() => {
+        const finishedTasks = tasks.filter(task => task.done);
+        setFinishedPercent(Math.round((finishedTasks.length / tasks.length) * 100))
+    }, [tasks])
+
     if (loading) {
         return <Loader />
     }
 
     return (
         <div>
-            <h3>{auth.admin ? 'Admin' : 'User'} Todo List</h3>
+            <div className="tasks-header">
+                <h3>{auth.admin ? 'Admin' : 'User'} Todo List</h3>
+                {
+                    tasks.length
+                        ? <div>Complete progress: {finishedPercent}%</div>
+                        : ''
+                }
+            </div>
             {
                 !tasks.length
                     ?
