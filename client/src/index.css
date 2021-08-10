@@ -53,6 +53,7 @@ input.yellow-input:focus {
     margin-top: 13px;
     overflow: hidden;
     box-sizing: border-box;
+    transition: 0.2s ease;
 }
 
 .task:hover {
@@ -67,23 +68,13 @@ input.yellow-input:focus {
     pointer-events: none;
 }
 
-.task-checker {
+.action-icon {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 30px;
     height: 30px;
     cursor: pointer;
-}
-
-.task-complete {
-    cursor: pointer;
-    color: #2F80ED;
-}
-
-.task-delete {
-    cursor: pointer;
-    color: #EB5757;
 }
 
 .task-description {

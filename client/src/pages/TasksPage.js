@@ -59,55 +59,61 @@ export const TasksPage = () => {
     return (
         <div>
             <h3>{auth.admin ? 'Admin' : 'User'} Todo List</h3>
-            <div>
-                <div className="table">
-                    <div className="table-item">Status</div>
-                    <div className="table-item description">Description</div>
-                    <div className="table-item">Action</div>
-                </div>
-                {
-                    tasks.map((task, index) => {
-                        return (
-                            <div key={index} className={`task ${task.done && 'completed'}`}>
-                                <div
-                                    className="task-checker"
-                                    onClick={() => updateHandler(task)}
-                                >
-                                    <span class="material-icons-round">
-                                        {task.done ? 'check_circle_outline' : 'radio_button_unchecked'}
-                                    </span>
-                                </div>
-                                <div className={`task-description ${task.done && "text-through"}`} >{task.description}</div>
-                                <div
-                                    className="task-delete"
-                                    onClick={() => deleteHandler(task)}
-                                >
-                                    Delete
-                                </div>
-                            </div>
-
-                        )
-                    })
-                }
-                <div>
-                    <div className="input-field col s6">
-                        <input
-                            placeholder="Description"
-                            id="description"
-                            type="text"
-                            value={task.description}
-                            name='description'
-                            className="validate"
-                            onChange={e => setTask({ ...task, [e.target.name]: e.target.value })}
-                        />
-                    </div>
+            {
+                !tasks.length
+                    ?
+                    <div>Let's create new task</div>
+                    :
                     <div>
-                        <button
-                            className="waves-effect waves-light btn"
-                            onClick={addHandler}
-                        >Add task
-                        </button>
+                        <div className="table">
+                            <div className="table-item">Status</div>
+                            <div className="table-item description">Description</div>
+                            <div className="table-item">Action</div>
+                        </div>
+                        {
+                            tasks.map((task, index) => {
+                                return (
+                                    <div key={index} className={`task ${task.done && 'completed'}`}>
+                                        <div
+                                            className="action-icon"
+                                            onClick={() => updateHandler(task)}
+                                        >
+                                            <span class="material-icons-round">
+                                                {task.done ? 'check_circle_outline' : 'radio_button_unchecked'}
+                                            </span>
+                                        </div>
+                                        <div className={`task-description ${task.done && "text-through"}`} >{task.description}</div>
+                                        <div
+                                            className="action-icon"
+                                            onClick={() => deleteHandler(task)}
+                                        >
+                                            <span class="material-icons-round">clear</span>
+                                        </div>
+                                    </div>
+
+                                )
+                            })
+                        }
                     </div>
+            }
+            <div>
+                <div className="input-field col s6">
+                    <input
+                        placeholder="Description"
+                        id="description"
+                        type="text"
+                        value={task.description}
+                        name='description'
+                        className="validate"
+                        onChange={e => setTask({ ...task, [e.target.name]: e.target.value })}
+                    />
+                </div>
+                <div>
+                    <button
+                        className="waves-effect waves-light btn"
+                        onClick={addHandler}
+                    >Add task
+                    </button>
                 </div>
             </div>
         </div>
