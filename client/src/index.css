@@ -1,0 +1,50 @@
+@import "~materialize-css/dist/css/materialize.min.css";
+
+input.yellow-input {
+    border-bottom: 1px solid #fff !important;
+    box-shadow: 0 1px 0 0 #fff !important;
+}
+
+input.yellow-input+label {
+    color: #fff !important;
+}
+
+input.yellow-input:focus+label {
+    color: #ffeb3b !important;
+}
+
+input.yellow-input:focus {
+    border-bottom: 1px solid #ffeb3b !important;
+    box-shadow: 0 1px 0 0 #ffeb3b !important;
+}
+
+.checkbox-yellow[type="checkbox"].filled-in:checked+span:not(.lever):after {
+    border: 2px solid #ffeb3b !important;
+    background-color: #ffeb3b !important;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    background: #F2F2F2;
+    justify-content: space-between;
+    border-radius: 13px;
+    padding: 11px;
+    margin-top: 13px;
+    overflow: hidden;
+    
+}
+
+.task-complete {
+    cursor: pointer;
+    color: #2F80ED;
+}
+
+.task-delete {
+    cursor: pointer;
+    color: #EB5757;
+}
+
+.text-through {
+    text-decoration: line-through;
+}
