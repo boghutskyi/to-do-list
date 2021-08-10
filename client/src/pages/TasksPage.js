@@ -54,20 +54,33 @@ export const TasksPage = () => {
 
     return (
         <div>
-            <h1>{auth.admin ? 'Admin' : 'User'} Todo List</h1>
+            <h3>{auth.admin ? 'Admin' : 'User'} Todo List</h3>
             {loading ? <Loader />
                 :
                 <div>
+                    <div className="table">
+                        <div className="table-item">Status</div>
+                        <div className="table-item description">Description</div>
+                        <div className="table-item">Action</div>
+                    </div>
                     {
                         tasks.map((task, index) => {
                             return (
-                                <div key={index} className="task">
-                                    <div
-                                        className="task-complete"
-                                        onClick={() => updateHandler(task)}
-                                    >
-                                        {task.done ? 'Unfinish' : 'Finish'}
+                                <div key={index} className={`task ${task.done && 'completed'}`}>
+                                    <div>
+                                        <p>
+                                            <label>
+                                                <input
+                                                    type="checkbox"
+                                                    className="filled-in"
+                                                    checked={task.done}
+                                                    onChange={() => updateHandler(task)}
+                                                />
+                                                <span />
+                                            </label>
+                                        </p>
                                     </div>
+
                                     <div className={`task-description ${task.done && "text-through"}`} >{task.description}</div>
                                     <div
                                         className="task-delete"

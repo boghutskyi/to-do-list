@@ -23,16 +23,44 @@ input.yellow-input:focus {
     background-color: #ffeb3b !important;
 }
 
+[type="checkbox"]+span:not(.lever) {
+    height: 16px;
+}
+
+.table {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0 11px;
+}
+
+.table-item {
+    margin: 0 5px;
+}
+.table-item.description {
+    flex-basis: 800px;
+}
+
 .task {
     display: flex;
     align-items: center;
     background: #F2F2F2;
     justify-content: space-between;
-    border-radius: 13px;
+    border-radius: 4px;
     padding: 11px;
     margin-top: 13px;
     overflow: hidden;
-    
+    box-sizing: border-box;
+}
+
+.task:hover {
+    opacity: 1;
+}
+
+.completed {
+    opacity: 0.4;
 }
 
 .task-complete {
@@ -43,6 +71,12 @@ input.yellow-input:focus {
 .task-delete {
     cursor: pointer;
     color: #EB5757;
+}
+
+.task-description {
+    flex-basis: 800px;
+    font-size: 17px;
+    font-weight: 500;
 }
 
 .text-through {
