@@ -92,6 +92,7 @@ export const AuthPage = () => {
                             className="btn yellow darken-4"
                             disabled={loading}
                             onClick={loginHandler}
+                            style={{marginRight: '10px'}}
                         >
                             Log in
                         </button>

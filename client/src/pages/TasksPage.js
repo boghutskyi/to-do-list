@@ -54,7 +54,7 @@ export const TasksPage = () => {
 
     return (
         <div>
-            <h1>{auth.admin ? 'Admin Todo List' :  'User Todo List'}</h1>
+            <h1>{auth.admin ? 'Admin' : 'User'} Todo List</h1>
             {loading ? <Loader />
                 :
                 <div>
